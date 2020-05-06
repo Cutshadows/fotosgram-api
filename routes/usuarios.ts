@@ -101,5 +101,14 @@ userRoutes.post('/update', tokenVerify, (req:any, res:Response)=>{
     })//new: true le dice a mongoose que devuelva la informacion actualizada
 });
 
+userRoutes.get('/', [tokenVerify], (req:any, res:Response)=>{
+    const {user}=req;
+
+    res.json({
+        ok:true,
+        user
+    });
+});
+
 
 export default userRoutes;

@@ -100,4 +100,11 @@ userRoutes.post('/update', uthentication_1.tokenVerify, (req, res) => {
         });
     }); //new: true le dice a mongoose que devuelva la informacion actualizada
 });
+userRoutes.get('/', [uthentication_1.tokenVerify], (req, res) => {
+    const { user } = req;
+    res.json({
+        ok: true,
+        user
+    });
+});
 exports.default = userRoutes;
